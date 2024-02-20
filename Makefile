@@ -18,6 +18,7 @@ all:
 	@echo " - make artisan/make"
 	@echo " - make artisan/key-generate"
 	@echo " - make artisan/migrate"
+	@echo " - make artisan/seed"
 	@echo " - make artisan/migrate-refresh"
 	@echo " - make artisan/scribe-generate"
 
@@ -45,6 +46,9 @@ artisan/key-generate:
 artisan/migrate:
 	${DOCKER_RUN} artisan migrate
 
+artisan/seed:
+	${DOCKER_RUN} artisan db:seed
+
 artisan/migrate-refresh:
 	${DOCKER_RUN} artisan migrate:refresh
 
@@ -57,7 +61,7 @@ artisan/generate-jwt:
 artisan/scribe-generate:
 	${DOCKER_RUN} artisan scribe:generate
 
-artisan/run-list: artisan/key-generate artisan/generate-jwt artisan/migrate artisan/scribe-generate
+artisan/run-list: artisan/key-generate artisan/generate-jwt artisan/migrate artisan/seed artisan/scribe-generate
 
 run: build up composer/install artisan/run-list
 
@@ -72,5 +76,3 @@ down:
 
 restart:
 	${DOCKER_COMPOSE} restart
-
-#Vue, pinia, Vuetify
