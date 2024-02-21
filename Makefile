@@ -37,6 +37,9 @@ composer/dump-autoload:
 composer/remove:
 	${DOCKER_RUN} composer remove $(REM)
 
+composer/update:
+	${DOCKER_RUN} composer update $(UPD)
+
 artisan/make:
 	${DOCKER_RUN} artisan make:$(ENT) $(NAME) $(FLAGS)
 
@@ -52,11 +55,20 @@ artisan/seed:
 artisan/migrate-refresh:
 	${DOCKER_RUN} artisan migrate:refresh
 
+artisan/route-list:
+	${DOCKER_RUN} artisan route:list
+
 artisan/vendor/publish:
 	${DOCKER_RUN} artisan vendor:publish $(PARAM)
 
 artisan/generate-jwt:
 	${DOCKER_RUN} artisan jwt:secret
+
+artisan/config-clear:
+	${DOCKER_RUN} artisan config:clear
+
+artisan/cache-clear:
+	${DOCKER_RUN} artisan cache:clear
 
 artisan/scribe-generate:
 	${DOCKER_RUN} artisan scribe:generate
