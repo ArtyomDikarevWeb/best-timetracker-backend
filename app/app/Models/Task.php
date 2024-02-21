@@ -19,8 +19,13 @@ class Task extends Model
         'finished_at',
     ];
 
+    /**
+     * The attributes that should be cast.
+     *
+     * @var array<string, string>
+     */
     protected $casts = [
-        'finished_at' => 'datetime'
+        'finished_at' => 'datetime:Y-m-d H:i:s'
     ];
 
     public function project(): BelongsTo

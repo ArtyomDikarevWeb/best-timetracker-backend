@@ -11,7 +11,7 @@ return [
 
     // The base URL displayed in the docs. If this is empty, Scribe will use the value of config('app.url') at generation time.
     // If you're using `laravel` type, you can set this to a dynamic string, like '{{ config("app.tenant_url") }}' to get a dynamic base URL.
-    'base_url' => null,
+    'base_url' => 'http://timetracker-backend.localhost:8003',
 
     'routes' => [
         [
@@ -35,6 +35,69 @@ return [
             // Exclude these routes even if they matched the rules above.
             'exclude' => [
                 // 'GET /health', 'admin.*'
+            ],
+
+            'apply' => [
+                /*
+                 * Additional headers to be added to the example requests
+                 */
+                'headers' => [
+                    'Content-Type' => 'application/json',
+                    'Accept' => 'application/json',
+                ],
+
+                /*
+                 * If no @response or @transformer declarations are found for the route,
+                 * Scribe will try to get a sample response by attempting an API call.
+                 * Configure the settings for the API call here.
+                 */
+                'response_calls' => [
+                    /*
+                     * API calls will be made only for routes in this group matching these HTTP methods (GET, POST, etc).
+                     * List the methods here or use '*' to mean all methods. Leave empty to disable API calls.
+                     */
+                    'methods' => ['GET'],
+
+                    /*
+                     * Laravel config variables which should be set for the API call.
+                     * This is a good place to ensure that notifications, emails and other external services
+                     * are not triggered during the documentation API calls.
+                     * You can also create a `.env.docs` file and run the generate command with `--env docs`.
+                     */
+                    'config' => [
+                        'app.env' => 'documentation',
+                        // 'app.debug' => false,
+                    ],
+
+                    /*
+                     * Query parameters which should be sent with the API call.
+                     */
+                    'queryParams' => [
+                        // 'key' => 'value',
+                    ],
+
+                    /*
+                     * Body parameters which should be sent with the API call.
+                     */
+                    'bodyParams' => [
+                        // 'key' => 'value',
+                    ],
+
+                    /*
+                     * Files which should be sent with the API call.
+                     * Each value should be a valid path (absolute or relative to your project directory) to a file on this machine (but not in the project root).
+                     */
+                    'fileParams' => [
+                        // 'key' => 'storage/app/image.png',
+                    ],
+
+                    /*
+                     * Cookies which should be sent with the API call.
+                     */
+                    'cookies' => [
+                        // 'name' => 'value'
+                    ],
+                ],
             ],
         ],
     ],

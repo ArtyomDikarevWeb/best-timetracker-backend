@@ -18,3 +18,5 @@ yarn-error.log
 /.idea
 /.vscode
 phpstan.neon
+.scribe
+public/docs
