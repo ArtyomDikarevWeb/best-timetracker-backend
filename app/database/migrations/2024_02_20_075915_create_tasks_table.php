@@ -18,8 +18,8 @@ return new class extends Migration
             $table->string('title');
             $table->boolean('is_completed')->default(false);
             $table->timestamp('finished_at')->nullable();
-            $table->softDeletes();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

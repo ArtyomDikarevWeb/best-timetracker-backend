@@ -2,17 +2,17 @@
 
 namespace App\Http\Requests;
 
-use App\Data\ProjectData;
+use App\Data\LoginData;
 use Illuminate\Foundation\Http\FormRequest;
 
-class StoreProjectRequest extends FormRequest
+class LoginRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
      */
     public function authorize(): bool
     {
-        return auth()->check();
+        return true;
     }
 
     /**
@@ -23,22 +23,14 @@ class StoreProjectRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => ['required', 'string', 'min:3', 'max:255'],
+            'email' => ['required_without:username', 'email', 'string', 'min:8', 'max:255'],
+            'username' => ['required_without:email', 'string', 'min:8', 'max:255'],
+            'password' => ['required', 'string', 'min:8', 'max:255'],
         ];
     }
 
-    public function bodyParameters(): array
+    public function dto(): LoginData
     {
-        return [
-            'name' => [
-                'description' => 'Name of project',
-                'example' => 'My first project'
-            ]
-        ];
-    }
-
-    public function dto(): ProjectData
-    {
-        return ProjectData::from($this->validated());
+        return LoginData::from($this->validated());
     }
 }
