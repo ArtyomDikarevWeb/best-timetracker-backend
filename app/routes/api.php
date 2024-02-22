@@ -3,6 +3,7 @@
 use App\Http\Controllers\Api\ProjectController;
 use App\Http\Controllers\Api\TaskController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Api\AuthController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,7 +17,17 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::prefix('v1')
+    ->middleware('api')
+    ->group(function () {
+        Route::group(['prefix' => 'auth'], function () {
+            Route::post('login', [AuthController::class, 'login']);
+            Route::post('me', [AuthController::class, 'me']);
+            Route::post('logout', [AuthController::class, 'logout']);
+            Route::post('refresh', [AuthController::class, 'refresh']);
+        });
+    })
+    ->middleware('auth:api')
     ->group(function () {
         Route::resource('projects', ProjectController::class)->except(['create']);
         Route::resource('tasks', TaskController::class)->except(['create']);
-});
+    });
