@@ -20,18 +20,16 @@ class AuthController extends Controller
 
     #[Endpoint('Login', 'Authorize user')]
     #[Response(
-        '{
-            "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vdGltZXRyYWNrZXItYmFja2VuZC5sb2NhbGhvc3Q6ODAwMy9hcGkvdjEvYXV0aC9sb2dpbiIsImlhdCI6MTcwODUzMTc1OCwiZXhwIjoxNzA4NTM1MzU4LCJuYmYiOjE3MDg1MzE3NTgsImp0aSI6ImYyQzQ5Wnp5U0xKWGFwR24iLCJzdWIiOiIyMiIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.CAbPEf7Uj6LhXw1OkVIRpLsZ2993KdkrbYKiEIa5gE8",
-            "token_type": "bearer",
-            "expires_in": 3600
-        }',
+        [
+            "access_token" => "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vdGltZXRyYWNrZXItYmFja2VuZC5sb2NhbGhvc3Q6ODAwMy9hcGkvdjEvYXV0aC9sb2dpbiIsImlhdCI6MTcwODUzMTc1OCwiZXhwIjoxNzA4NTM1MzU4LCJuYmYiOjE3MDg1MzE3NTgsImp0aSI6ImYyQzQ5Wnp5U0xKWGFwR24iLCJzdWIiOiIyMiIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.CAbPEf7Uj6LhXw1OkVIRpLsZ2993KdkrbYKiEIa5gE8",
+            "token_type" => "bearer",
+            "expires_in" => 3600
+        ],
         200,
         "success"
     )]
     #[Response(
-        '{
-            "error" => "Unauthorized"
-        }',
+        ["error" => "Unauthorized"],
         401,
         "Fail"
     )]
@@ -42,19 +40,17 @@ class AuthController extends Controller
 
     #[Endpoint('Login', 'Return user data')]
     #[Response(
-        '{
-            "id": 22,
-            "name": "TMsZnKofrX",
-            "email": "testtest@test.com",
-            "username": "testtest",
-        }',
+        [
+            "id" => 22,
+            "name" => "TMsZnKofrX",
+            "email" => "testtest@test.com",
+            "username" => "testtest",
+        ],
         200,
         "success"
     )]
     #[Response(
-        '{
-            "error" => "Unauthorized"
-        }',
+        ["error" => "Unauthorized"],
         401,
         "Fail"
     )]
@@ -65,16 +61,12 @@ class AuthController extends Controller
 
     #[Endpoint('Login', 'Return user data')]
     #[Response(
-        '{
-            "message" => "Successfully logged out"
-        }',
+        ["message" => "Successfully logged out"],
         200,
         "success"
     )]
     #[Response(
-        '{
-            "error" => "Unauthorized"
-        }',
+        ["error" => "Unauthorized"],
         401,
         "Fail"
     )]
@@ -87,18 +79,16 @@ class AuthController extends Controller
 
     #[Endpoint('Login', 'Return user data')]
     #[Response(
-        '{
-            "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vdGltZXRyYWNrZXItYmFja2VuZC5sb2NhbGhvc3Q6ODAwMy9hcGkvdjEvYXV0aC9sb2dpbiIsImlhdCI6MTcwODUzMTc1OCwiZXhwIjoxNzA4NTM1MzU4LCJuYmYiOjE3MDg1MzE3NTgsImp0aSI6ImYyQzQ5Wnp5U0xKWGFwR24iLCJzdWIiOiIyMiIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.CAbPEf7Uj6LhXw1OkVIRpLsZ2993KdkrbYKiEIa5gE8",
-            "token_type": "bearer",
-            "expires_in": 3600
-        }',
+        [
+            "access_token" => "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vdGltZXRyYWNrZXItYmFja2VuZC5sb2NhbGhvc3Q6ODAwMy9hcGkvdjEvYXV0aC9sb2dpbiIsImlhdCI6MTcwODUzMTc1OCwiZXhwIjoxNzA4NTM1MzU4LCJuYmYiOjE3MDg1MzE3NTgsImp0aSI6ImYyQzQ5Wnp5U0xKWGFwR24iLCJzdWIiOiIyMiIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.CAbPEf7Uj6LhXw1OkVIRpLsZ2993KdkrbYKiEIa5gE8",
+            "token_type" => "bearer",
+            "expires_in" => 3600
+        ],
         200,
         "success"
     )]
     #[Response(
-        '{
-            "error" => "Unauthorized"
-        }',
+        ["error" => "Unauthorized"],
         401,
         "Fail"
     )]

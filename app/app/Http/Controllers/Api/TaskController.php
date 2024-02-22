@@ -27,9 +27,7 @@ class TaskController extends Controller
         paginate: 10
     )]
     #[DocResponse(
-        '{
-            "error" => "Unauthorized"
-        }',
+        ["error" => "Unauthorized"],
         401,
         "Fail"
     )]
@@ -48,9 +46,7 @@ class TaskController extends Controller
         with: ['project'],
     )]
     #[DocResponse(
-        '{
-            "error" => "Unauthorized"
-        }',
+        ["error" => "Unauthorized"],
         401,
         "Fail"
     )]
@@ -69,9 +65,7 @@ class TaskController extends Controller
         with: ['project'],
     )]
     #[DocResponse(
-        '{
-            "error" => "Unauthorized"
-        }',
+        ["error" => "Unauthorized"],
         401,
         "Fail"
     )]
@@ -90,9 +84,7 @@ class TaskController extends Controller
         with: ['project'],
     )]
     #[DocResponse(
-        '{
-            "error" => "Unauthorized"
-        }',
+        ["error" => "Unauthorized"],
         401,
         "Fail"
     )]
@@ -111,9 +103,7 @@ class TaskController extends Controller
         with: ['project'],
     )]
     #[DocResponse(
-        '{
-            "error" => "Unauthorized"
-        }',
+        ["error" => "Unauthorized"],
         401,
         "Fail"
     )]
@@ -127,9 +117,7 @@ class TaskController extends Controller
     #[Endpoint('Delete task')]
     #[DocResponse(status: 204)]
     #[DocResponse(
-        '{
-            "error" => "Unauthorized"
-        }',
+        ["error" => "Unauthorized"],
         401,
         "Fail"
     )]
